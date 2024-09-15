@@ -3,23 +3,24 @@ html {
   scroll-behavior: smooth;
 }
 
-a:link {
-  text-decoration: none;
-  color: black;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  cursor: pointer;
-}
-
 body {
     margin: 0;
     overflow-x: hidden;
 }
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  scale: 1.3;
+  transition: .1s;
+}
+
 /* Pre-Loader */
 
 #pre-loader {
@@ -41,7 +42,7 @@ body {
     border-radius: 50%;
     pointer-events: none;
     transition: transform 0.1s ease-out;
-    z-index: 1000;
+    z-index: 9999;
     mix-blend-mode: difference;
 }
 
@@ -102,8 +103,8 @@ nav {
     width: 100%;
     height: 50px;
     background-color: rgba(0, 0, 0, 0.097);
-    z-index: 1;
     font-size: 20px;
+    z-index: 2;
 }
 
 .main-navigation {
@@ -115,30 +116,160 @@ nav {
 
 .logo-container {
     width: 15%;
-}
-
-.menu-button-container {
-    width: 15%;
-}
-
-.menu-button {
     height: 100%;
-    width: 50%;
-    position: relative;
-    float: right;
-    right: 25%;
+    display: flex;
+    justify-content: center;
+
 }
 
+.logo {
+  position: relative;
+  width: auto;
+  height: 100%;
+}
+
+/* Hamburger menu icon */
+
+.hamburger-menu {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  margin: 1rem 8rem;
+  z-index: 2;
+}
+
+.bar {
+  width: 100%;
+  height: 4px;
+  background-color: black;
+  border-radius: 5px;
+}
+
+/* Additional Navigation (Hidden Initially) */
+
+#additional-nav {
+  height: 100%;
+  position: fixed;
+  left: 0;
+  width: 50vw;
+  margin-top: 0;
+  transform: translateX(100vw);
+  transition: transform 250ms ease-in-out;
+  background: linear-gradient(180deg, #000000ea 0%, #000000be 100%);
+}
+.sidebarMenuInner{
+  margin:0;
+  padding:0;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenuInner li{
+  list-style: none;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 30px;
+  cursor: pointer;
+}
+.sidebarMenuInner li a{
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+input[type="checkbox"]:checked ~ #additional-nav {
+  transform: translateX(50vw);
+}
+
+input[type=checkbox] {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  display: none;
+}
+.additional-nav {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: absolute;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  top: 22px;
+  right: 7rem;
+  height: 22px;
+  width: 22px;
+}
+.bar {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: black;
+}
+.horizontal {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin-top: 3px;
+}
+.diagonal.part-1 {
+  position: relative;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  float: left;
+}
+.diagonal.part-2 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin-top: 3px;
+}
+input[type=checkbox]:checked ~ .additional-nav > .horizontal {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  opacity: 0;
+}
+input[type=checkbox]:checked ~ .additional-nav > .diagonal.part-1 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  transform: rotate(135deg);
+  margin-top: 8px;
+  background-color: white;
+}
+input[type=checkbox]:checked ~ .additional-nav > .diagonal.part-2 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  transform: rotate(-135deg);
+  margin-top: -9px;
+  background-color: white;
+}
 /* Hero */
 
 #hero {
   position: relative;
     width: 100vw;
     height: 100vh;
-    background: url(test.png);
-    background-size:contain;
-    background-position: top 100px;
-    background-repeat: no-repeat;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(LogRyanPicture.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position:right;
+  transform: scaleX(-1); /* Flip the background horizontally */
+  z-index: -1; /* Ensures the background stays behind the content */
 }
 
 .background-animation{
@@ -309,10 +440,47 @@ nav {
 /* About */
 
 #about {
-    background-color: black;
     width: 100vw;
     height: 120vh;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-image {
+  width: 25%;
+  height: auto;
+  position: absolute;
+  right: 0;
+  margin: 100px;
+  outline: 2px solid black;
+}
+
+#about h3 {
+  background-color: red;
+  width: fit-content;
+  position: relative;
+  left: 10rem;
+  top: 10rem;
+  font-size: 3rem;
+}
+
+#about p {
+  position: relative;
+  width: fit-content;
+  background-color: blue;
+  font-size: 1.5rem;
+  left: 10rem;
+  top: 10rem;
+}
+
+#about h4 {
+  font-size: 2rem;
+}
+
+.under-text {
+  margin: -3rem .5rem;
+  margin-bottom: 1rem;
 }
 
 /* Contact */
