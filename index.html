@@ -21,18 +21,31 @@
     <div class="mouse-follower"></div>
     <header>
         <!-- Navigation -->
-        <nav>
+        <nav class="main-nav">
             <div class="logo-container">
-                <img class="logo"src="#LogRyanLogo" alt="Log Ryan Logo">
+                <img src="RuppLogoHighQuality500x500.png" alt="Log Ryan Logo" class="logo">
             </div>
             <div class="main-navigation">
                 <a href="#about">About</a>
                 <a href="#portfolio">Portfolio</a>
-                <a href="#contact">Contact</a>
+                <a href="contact.html">Contact</a>
             </div>
-            <div class="menu-button-container">
-                <input type="checkbox">
-            </div>
+            <input type="checkbox" id="hamburger-menu">
+                <label for="hamburger-menu" class="additional-nav">
+                    <div class="bar diagonal part-1"></div>
+                    <div class="bar horizontal"></div>
+                    <div class="bar diagonal part-2"></div>
+                </label>
+                <div id="additional-nav">
+                    <ul class="sidebarMenuInner">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#collections">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://www.linkedin.com/in/lrrupp/">Linkedin</a></li>
+                    <li><a href="RuppResume006.pdf">Resume</a></li>
+                    </ul>
+                </div>
         </nav>
     </header>
     <section id="hero">
@@ -67,29 +80,5 @@
             </div>             
          </div> <!-- End hero-content-container-->
     </section>
-    <div class="separator">
-
-    </div>
-    <section id="about">
-    </section>
-    <section id="background">
-
-    </section>
-    <section id="collections">
-
-    </section>
-    <section id="contact">
-
-    </section>
-    <footer>
-
-    </footer>
-
-    <!-- <script>var loader = document.getElementById("pre-loader");
-        window.addEventListener("load", function() {
-            loader.style.display =  "none";
-        });
-        </script> -->
-    
 </body>
 </html>
