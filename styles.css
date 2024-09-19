@@ -21,6 +21,18 @@ a:hover {
   transition: .1s;
 }
 
+label {
+  z-index: 1;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
 /* Pre-Loader */
 
 #pre-loader {
@@ -166,12 +178,15 @@ nav {
   padding:0;
   border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
+
 .sidebarMenuInner li{
   list-style: none;
   color: #fff;
   text-transform: uppercase;
-  padding: 30px;
   cursor: pointer;
+  position: relative;
+  width: fit-content;
+  margin: 5rem;
 }
 .sidebarMenuInner li a{
   color: #fff;
@@ -180,6 +195,11 @@ nav {
   cursor: pointer;
   text-decoration: none;
 }
+
+.sidebarMenuInner li:hover {
+  scale: 1.02;
+}
+
 input[type="checkbox"]:checked ~ #additional-nav {
   transform: translateX(50vw);
 }
@@ -255,21 +275,10 @@ input[type=checkbox]:checked ~ .additional-nav > .diagonal.part-2 {
   position: relative;
     width: 100vw;
     height: 100vh;
-}
-
-#hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url(LogRyanPicture.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position:right;
-  transform: scaleX(-1); /* Flip the background horizontally */
-  z-index: -1; /* Ensures the background stays behind the content */
+    background-image: url(test.png);
+    background-position: left;
+    background-position-x: -10rem;
+    background-repeat: no-repeat;
 }
 
 .background-animation{
@@ -483,12 +492,6 @@ input[type=checkbox]:checked ~ .additional-nav > .diagonal.part-2 {
   margin-bottom: 1rem;
 }
 
-/* Contact */
-
-#contact{
-    width: 100vw;
-    height: 100vh;
-}
 /* Footer */
 
 /* Interactive button follow */
@@ -555,4 +558,208 @@ input[type=checkbox]:checked ~ .additional-nav > .diagonal.part-2 {
 
 .interactive-button.snap-back {
   transition: transform 0.6s ease; /* Snaps back more slowly */
+}
+
+/* Contact Form */
+
+#contact {
+  position: relative;
+    width: 100vw;
+    height: 50vh;
+    /* background-image: url(test.png);
+    background-position: left;
+    background-position-x: -10rem;
+    background-repeat: no-repeat; */
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  display: none;
+}
+
+.snap-back {
+  transition: transform 0.5s ease;  /* Smooth return to original position */
+}
+
+.form-container {
+  width: 40%;
+  height: 48%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  position: absolute;
+  margin: -25rem 55rem;
+  box-shadow: 10px 5px 5px black;
+  border-radius: 1rem;
+  outline: 1px solid black;
+  background-color: white;
+}
+
+#contact h3 {
+  font-size: 4rem;
+  height: fit-content;
+  position: relative;
+  margin: 12rem;
+}
+
+#contactForm{
+  height: 100%;
+  width: 100%;
+}
+
+.form-group {
+  height: fit-content;
+  margin: 1.5rem;
+}
+
+input{
+  height: 3rem;
+  width: 40%;
+  border-radius: .4rem;
+  border: none;
+  outline: 1px solid black;
+}
+
+textarea {
+  border-radius: .4rem;
+  height: 8rem;
+  width: 99%;
+  border: none;
+  outline: 1px solid black;
+}
+
+input[type="submit"] {
+  position: relative;
+  float: right;
+  right: 30px;
+  width: 30%;
+  cursor: pointer;
+}
+
+.contact-info-container {
+  width: 40rem;
+  position: relative;
+  margin: 0 6rem;
+}
+
+.contact-info-container h4 {
+  font-size: 3rem;
+  margin: 2rem auto;
+}
+
+.contact-info-container p {
+  font-size: 1.4rem;
+  text-indent: 2rem;
+}
+
+.faq-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+summary {
+  list-style-type: none;
+  cursor: pointer;
+  font-size: 1.75rem;
+  border-bottom: 1px solid black;
+  width: 45rem;
+}
+
+details {
+  padding: .75rem;
+}
+
+details p {
+  width: 40%;
+}
+
+.contact-form-text {
+  position: absolute;
+  right: 3rem;
+  top: -1rem;
+  width: 22rem;
+  height: 13rem;
+  font-size: 2.5rem;
+}
+
+.red-text {
+  color: red;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  position: relative;
+  float: right;
+  right: 20px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.faq-container p {
+  text-indent: 2rem;
+}
+
+
+.footer-content-container {
+  display: flex;
+}
+
+.footer-content-container div {
+  width: 25%;
+}
+
+.footer-content-container h6 {
+  font-size: 1.2rem;
+  margin: 0;
+  height: fit-content;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content-container ul {
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
+  list-style: none;
+  display: contents;
+}
+
+.footer-content-container li {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  font-size: .75rem;
+}
+
+.footer-logo-container {
+  display: flex;
+  justify-content: center;
+  margin: auto 0;
+}
+
+.footer-logo-container img {
+  height: 100%;
+  width: auto;
+}
+
+.socials-container {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
 }
